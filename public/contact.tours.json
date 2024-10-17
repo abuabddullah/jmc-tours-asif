@@ -1,0 +1,41 @@
+{
+    "contacts": {
+      "showrooms": [
+        {
+          "name": "JMC Tours Hotline (International)",
+          "phone": "+880 13212 10094"
+        },
+        {
+          "name": "JMC Domestic Tours Hotline",
+          "phone": "+880 13212 10041"
+        },
+        {
+          "name": "JMC Student Counseling Hotline",
+          "phone": "+880 13212 10042"
+        }
+      ],
+      "hotline": [
+        {
+          "name": "JMC Group Hotline",
+          "phone": "+880 13099 91999"
+        }
+      ],
+      "email": {
+        "consultant": "consultant@jmc.tours",
+        "administration": "info@jmc.tours"
+      },
+      "website": "www.jmc.tours",
+      "social_media": {
+        "facebook": "www.facebook.com/JMCToursBD",
+        "linkedin": "www.linkedin.com/company/jmctours",
+        "instagram": "www.instagram.com/jmctoursbd",
+        "youtube": "www.youtube.com/@jmctourstravelsltd",
+        "tiktok": "www.tiktok.com/@jmc_tours",
+        "twitter": "www.x.com/jmctourstravels",
+        "threads": "www.threads.net/@jmctoursbd",
+        "pinterest": "www.pinterest.com/jmctourstravels"
+      },
+      "address": "Flat# 8B, Level# 08, Main Road, Block# H, Aftabnagar, Badda, Dhaka-1212, Bangladesh"
+    }
+  }
+  

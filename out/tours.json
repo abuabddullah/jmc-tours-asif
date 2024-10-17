@@ -1,0 +1,63 @@
+[
+    {
+      "image": "https://i.ibb.co/jvBVcJh/tour-9.jpg",
+
+      "title": "Beautiful scenery of Rangamati, Bangladesh",
+      "location": "Central Park West, USA",
+
+      "cheapPriceFrom": 59,
+      "durationDays": 10,
+      "tourType": "air", // by air or by road or by train or by bus or by boat or cruise it will be select options
+
+      "overview": "Most Beautiful scenery of Rangamati",
+      "country": "Bangladesh",
+
+      "pickNdrop": true,
+      "mealPerDay": 1,
+      "Cruise Dinner":true, 
+      "Music Event":true,
+      "visitPlacesCountInTheCity": 7,
+      "visitPlacesCountInTheCityWithGroup": true,
+
+      "additionalServices":false,
+      "insurance": false,
+      "foodNDrink": false,
+      "freeTicket": false,
+
+      "maxGuest": 50,
+      "minAge": 12,
+      "languageSupport": true,
+
+      "tourPlanDay1": "Lorem ipsum dolor sit amet, utinam munere antiopam vel ad. Qui eros iusto te. Nec ad feugiat honestatis. Quo illum detraxit an. Ius eius quodsi molestiae at, nostrum definitiones his cu. Discere referrentur mea id, an pri novum possim deterruisset.",
+      "tourPlanDay2": "Lorem ipsum dolor sit amet, utinam munere antiopam vel ad. Qui eros iusto te. Nec ad feugiat honestatis. Quo illum detraxit an. Ius eius quodsi molestiae at, nostrum definitiones his cu. Discere referrentur mea id, an pri novum possim deterruisset.",
+      "tourPlanDay3": "Lorem ipsum dolor sit amet, utinam munere antiopam vel ad. Qui eros iusto te. Nec ad feugiat honestatis. Quo illum detraxit an. Ius eius quodsi molestiae at, nostrum definitiones his cu. Discere referrentur mea id, an pri novum possim deterruisset.",
+      "tourPlanDay4": "Lorem ipsum dolor sit amet, utinam munere antiopam vel ad. Qui eros iusto te. Nec ad feugiat honestatis. Quo illum detraxit an. Ius eius quodsi molestiae at, nostrum definitiones his cu. Discere referrentur mea id, an pri novum possim deterruisset.",
+      "tourPlanDay5": "",
+      "tourPlanDay6": "",
+      "tourPlanDay7": "",
+
+      "ratings": 5,
+      "cost": 100,
+
+      "seoKeywords":"alo,piaj,shosha",
+      "seoDescription":"this is seo description for tour",
+
+      "reviews": [
+        {
+          "touristID": "sdsdsdf",
+          "touristComment": [
+            "Restaurant featuring mouthwatering seafood delicacies.",
+            "Overnight stay at the hotel."
+          ]
+        }
+      ],
+      "bookings": [
+        {
+          "touristID": "sdsdsdf",
+          "tourCost": 100,
+          "isPaid": false
+        }
+      ]
+    }
+  ]
+  

@@ -1,0 +1,20 @@
+{
+    "user": {
+      "username": "username",
+      "email": "admin@gmail.com",
+      "photo": "https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg",
+      "phone": "+88012356789",
+      "role": 1,
+      "permissions": [
+        "username",
+        "username",
+        "username",
+        "username",
+        "username",
+        "username",
+        "username",
+        "username",
+        "username"
+      ]
+    }
+  }
