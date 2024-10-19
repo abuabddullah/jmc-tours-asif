@@ -31,9 +31,8 @@
 // import { Checkbox } from "@/components/ui/checkbox";
 // import { RxCaretSort, RxDotsHorizontal } from "react-icons/rx";
 // import useBlogs, { deleteBlogs } from "@/utils/customHooks/useBlogs";
-// import { SkeletonCard } from "@/components/shared/loadingComponents/Skeleton";
-// import { useRouter } from "next/navigation";
 // import { SkeletonListTable } from "@/components/shared/LoadingSkeletons";
+// import { useRouter } from "next/navigation";
 
 // const AllBlogs = () => {
 //   const router = useRouter();
@@ -42,7 +41,7 @@
 //   const [columnFilters, setColumnFilters] = useState([]);
 //   const [columnVisibility, setColumnVisibility] = useState({});
 //   const [rowSelection, setRowSelection] = useState({});
-//   const [titleFilter, setTitleFilter] = useState(""); // State for the title filter
+//   const [titleFilter, setTitleFilter] = useState("");
 
 //   // Define columns
 //   const columns = [
@@ -70,20 +69,29 @@
 //     },
 //     {
 //       accessorKey: "title",
+//       header: "Title",
+//       //   header: ({ column }) => (
+//       //     <Button
+//       //       variant="ghost"
+//       //       onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+//       //     >
+//       //       Title
+//       //       <RxCaretSort className="ml-2 h-4 w-4" />
+//       //     </Button>
+//       //   ),
+//       cell: ({ row }) => <div>{row.getValue("title")}</div>,
+//     },
+//     {
+//       accessorKey: "category",
 //       header: ({ column }) => (
 //         <Button
 //           variant="ghost"
 //           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
 //         >
-//           Title
+//           Category
 //           <RxCaretSort className="ml-2 h-4 w-4" />
 //         </Button>
 //       ),
-//       cell: ({ row }) => <div>{row.getValue("title")}</div>,
-//     },
-//     {
-//       accessorKey: "category",
-//       header: "Category",
 //       cell: ({ row }) => (
 //         <div className="capitalize">{row.getValue("category")}</div>
 //       ),
@@ -142,7 +150,6 @@
 //               <DropdownMenuSeparator />
 //               <DropdownMenuItem
 //                 onClick={() => {
-//                   //   router.replace(`/blogsDetails/${blog?._id}`);
 //                   router.replace(`/blogsDetails/${blog?._id}`);
 //                 }}
 //               >
@@ -297,10 +304,8 @@
 
 // export default AllBlogs;
 
-/* v-2 */
-
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   ColumnDef,
   flexRender,
@@ -334,15 +339,25 @@ import { RxCaretSort, RxDotsHorizontal } from "react-icons/rx";
 import useBlogs, { deleteBlogs } from "@/utils/customHooks/useBlogs";
 import { SkeletonListTable } from "@/components/shared/LoadingSkeletons";
 import { useRouter } from "next/navigation";
+import { blogsDEMO } from "@/components/blogsPage/AllBlogs";
 
 const AllBlogs = () => {
   const router = useRouter();
+  const [isLoadingDEMO, setIsLoadingDEMO] = useState(false);
+  const [errorDEMO, setErrorDEMO] = useState(false);
   const { isLoading, error, blogs, refetchBlogs } = useBlogs();
   const [sorting, setSorting] = useState([]);
   const [columnFilters, setColumnFilters] = useState([]);
   const [columnVisibility, setColumnVisibility] = useState({});
   const [rowSelection, setRowSelection] = useState({});
   const [titleFilter, setTitleFilter] = useState("");
+
+  useEffect(() => {
+    setIsLoadingDEMO(true);
+    setTimeout(() => {
+      setIsLoadingDEMO(false);
+    }, 3000);
+  }, []);
 
   // Define columns
   const columns = [
@@ -402,7 +417,7 @@ const AllBlogs = () => {
       header: () => <div className="text-right">Ratings</div>,
       cell: ({ row }) => (
         <div className="text-right font-medium">
-          {row.getValue("ratings").length}
+          {row.getValue("ratings")?.length}
         </div>
       ),
     },
@@ -465,13 +480,13 @@ const AllBlogs = () => {
 
   // Memoized column filtering logic
   const filteredBlogs = useMemo(() => {
-    if (!titleFilter) return blogs;
-    return blogs
+    if (!titleFilter) return blogsDEMO;
+    return blogsDEMO
       .filter((blog) =>
         blog.title.toLowerCase().includes(titleFilter.toLowerCase())
       )
       .sort((a, b) => new Date(a.date) - new Date(b.date));
-  }, [blogs, titleFilter]);
+  }, [blogsDEMO, titleFilter]);
 
   const table = useReactTable({
     data: filteredBlogs || [],
@@ -491,9 +506,9 @@ const AllBlogs = () => {
     },
   });
 
-  if (isLoading) return <SkeletonListTable />;
+  if (isLoadingDEMO) return <SkeletonListTable />;
 
-  if (error) return <div>An error has occurred: {error.message}</div>;
+  if (errorDEMO) return <div>An error has occurred: {errorDEMO.message}</div>;
 
   return (
     <div className="w-64 lg:w-full lg:m-8">

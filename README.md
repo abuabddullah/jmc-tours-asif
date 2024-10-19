@@ -20,3 +20,9 @@
 * src\components\shared\LocationsCard.jsx
 * src\components\shared\ToursCardsSection.jsx
 * README.md
+* src\app\dashboard\(manageTours)\all-tours\page.jsx
+* src\app\dashboard\(manageBlogs)\all-blogs\page.jsx
+* src\app\dashboard\(manageLocations)\all-locations\page.jsx
+
+
+### login এর ্কাজ করব "tours-portfolio-project" branch এ আর যখন backend ready হবে just এই পেইজ গুলো তে গিলে comment করা code গুলো কে revive দিব আর login page এর functionality check দিব
