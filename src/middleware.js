@@ -7,13 +7,13 @@ export function middleware(req) {
   console.log(token); // Log to see if token is retrieved
 
   // Check if token exists
-  if (!token) {
+  /* if (!token) {
     // If not authenticated, redirect to login with the desired route as a query parameter
     const desiredRoute = req.nextUrl.pathname;
     return NextResponse.redirect(
       new URL(`/login?redirect=${encodeURIComponent(desiredRoute)}`, req.url)
     );
-  }
+  } */
 
   return NextResponse.next();
 }

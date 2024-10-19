@@ -66,10 +66,13 @@ const PackageBookingForm = ({ tourPackageId, tourPackageName }) => {
 
   return (
     <section className="max-w-5xl mx-auto p-6 py-16 bg-white">
-      <div className="bg-white shadow-md rounded-lg p-6 mb-8">
-        <h2 className="text-xl lg:text-3xl font-bold text-center text-green-600 mb-4">
+      <div
+        className="bg-white shadow-md rounded-lg p-6 mb-8"
+        style={{ backgroundColor: "#faf3ee" }}
+      >
+        <h2 className="text-xl lg:text-3xl font-bold text-center text-red-500 mb-4">
           Book Now for <br />
-          <span className="text-red-500">{tourPackageName}</span> <br />
+          <span className="">{tourPackageName}</span> <br />
           <span className="text-base text-center break-all lg:text-lg">
             ({tourPackageId})
           </span>

@@ -14,7 +14,6 @@ export default function Home() {
       <GetToKNow />
       <PopularTours />
       <BookingPlatform />
-      {/* <OurPartner /> */}
       <ChooseJMC />
     </main>
   );
