@@ -10,7 +10,6 @@ const UserInfoContext = ({ children }) => {
     loading: false,
     error: null,
   });
-  console.log("user from UserInfoContext.jsx", userState?.user);
   useEffect(() => {
     const token = document.cookie
       .split("; ")

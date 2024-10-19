@@ -279,3 +279,13 @@ export const UserProfilePicSkeleton = () => {
     </div>
   );
 };
+
+export const LoginSkeleton = () => {
+  return (
+    <div>
+      <Skeleton height={40} width={300} />
+      <Skeleton height={40} width={300} style={{ marginTop: 10 }} />
+      <Skeleton height={40} width={100} style={{ marginTop: 10 }} />
+    </div>
+  );
+};

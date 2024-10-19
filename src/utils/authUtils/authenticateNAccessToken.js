@@ -4,7 +4,7 @@ export const authenticateNAccessToken = async (auth) => {
    * set the token in the local storage
    * set the token in a cookie
    */
-  const token = auth?.token;
+  const token = auth?.accessToken;
   localStorage.setItem("token", token);
 
   // Set the token in a cookie
