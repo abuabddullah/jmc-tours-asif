@@ -1,10 +1,19 @@
+"use client";
 import PackageBookingForm from "@/components/packageBookingPage/PackageBookingForm";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../../../../firebase.config";
+import { LoginSkeleton } from "@/components/shared/LoadingSkeletons";
 
 const PackageBookingPage = ({ params }) => {
+  const { user, isLoading } = useAuthState(auth);
   const tourPackageId = params.segments[0] || "Random_id_RBQhYmZiYmMwYzYzNzFh";
   const tourPackageName =
     params.segments[1].replace(/%20/g, " ") || "Demo Package";
+
+  if (isLoading) {
+    return <LoginSkeleton />;
+  }
   return (
     <section>
       {/* Background Section */}
