@@ -178,7 +178,7 @@ const MyWishListPage = () => {
                     </button>
                   </div>
                   <div
-                    onClick={() => router.push(`/tours/${tour?._id}`)}
+                    onClick={() => router.push(`/tours/DEMO_ID`)}
                     className="hover:bg-[#0000006e] duration-500 text-white p-6 rounded-t-xl shadow-lg cursor-pointer"
                   >
                     <div className="flex justify-between items-center mb-2">
