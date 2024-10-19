@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 import LocationCardComponent from "@/components/blogsPage/LocationCardComponent";
 
-const SgBlogDetails = ({ params }) => {
+const SgBlogDetails = () => {
   const blog = {
     _id: "demo-blog-001",
     title: "The Hidden Gems of Bali",
