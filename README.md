@@ -30,3 +30,7 @@
 
 * src\components\shared\Navbar\Navbar2.jsx
 * src\components\shared\Navbar\navComponents\UserLogOutDrop.jsx
+
+
+## during vercel deploy
+* src\app\(client)\blogs\[blogCategory]\page.jsx
