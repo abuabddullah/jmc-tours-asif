@@ -6,16 +6,17 @@ import LoginForm from "./LoginForm";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../firebase.config";
 import { useRouter } from "next/navigation";
+import { LoginSkeleton } from "../shared/LoadingSkeletons";
 
 const AuthenticateForm = () => {
   const [toggleSignIn, setToggleSignIn] = useState(true);
   const [user, loading, error] = useAuthState(auth);
   const router = useRouter();
   if (user) {
-      router.push("/")
+    router.push("/");
   }
   if (loading) {
-    return <div>Loading ...</div>
+    return <LoginSkeleton />;
   }
   return (
     <>

@@ -29,14 +29,14 @@ const PackageTypePage = ({ params }) => {
         <div
           className="absolute inset-0 bg-bottom"
           style={{
-            backgroundImage: `url("https://jmc.tours/wp-content/uploads/2024/05/dan-freeman-7Zb7kUyQg1E-unsplash-scaled.jpg")`,
+            backgroundImage: `url("https://www.indiaworldwidetravel.com/wp-content/uploads/2019/02/houseboat.jpg")`,
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
             zIndex: -1,
             height: "100%",
           }}
         />
-        <div className="absolute inset-0 bg-[#000000c5] flex items-center justify-start">
+        <div className="absolute inset-0 bg-[#0000009d] flex items-center justify-start">
           <div className="container">
             <h1 className="text-2xl md:text-4xl text-white font-bold text-center capitalize">
               {params?.packageType} Packages

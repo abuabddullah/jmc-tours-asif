@@ -6,7 +6,7 @@ import { auth } from "../../../../../firebase.config";
 import { logout } from "@/utils/authUtils/authenticateNAccessToken";
 import { useRouter } from "next/navigation";
 
-const UserLogOutDrop = ({ user, setUserState }) => {
+const UserLogOutDrop = ({ user }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -24,17 +24,16 @@ const UserLogOutDrop = ({ user, setUserState }) => {
   }, []);
 
   // sign out
-  // const [signOut, loading, error] = useSignOut(auth);
+  const [signOut, loading, error] = useSignOut(auth);
   const handleSignOut = async () => {
-    const status = await logout();
+    const success = await signOut();
+    console.log("🚀 ~ handleSignOut ~ res:", success);
 
-    if (status === 200) {
+    if (success) {
+      localStorage.removeItem("token"); // Remove token
+      document.cookie =
+        "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; // Clear token cookie
       router.replace("/");
-      setUserState({
-        user: null,
-        loading: false,
-        error: null,
-      });
     }
   };
 
@@ -43,7 +42,7 @@ const UserLogOutDrop = ({ user, setUserState }) => {
       {/* Dropdown toggle button */}
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="  text-base text-gray-600 bg-white  rounded-md  flex gap-1 items-center hover:text-green-400 border-b-2 border-transparent hover:border-[#DD7364] relative z-10 lg:px-3 lg:pb-2  mt-2"
+        className="  text-base text-gray-600   rounded-md  flex gap-1 items-center hover:text-green-400 border-b-2 border-transparent hover:border-[#DD7364] relative z-10 lg:px-3 lg:pb-2  mt-2"
       >
         <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
           <img
@@ -58,7 +57,7 @@ const UserLogOutDrop = ({ user, setUserState }) => {
           />
         </div>
         <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">
-          {user?.name || "Anonymous"}
+          {user?.displayName || "Anonymous"}
         </h3>
       </div>
 

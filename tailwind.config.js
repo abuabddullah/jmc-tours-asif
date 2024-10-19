@@ -28,8 +28,8 @@ module.exports = {
         dashCaviarTitleText: "#424242", // Text color
         dashSideNavText: "#52525B", // Text color
         careerRed: "#FF5857",
-        contactBlue: "#1A60B0",
-        contactBlueHover: "#19395e",
+        contactBlue: "#16A34A",
+        contactBlueHover: "#14803c",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

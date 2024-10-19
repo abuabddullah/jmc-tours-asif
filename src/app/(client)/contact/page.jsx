@@ -75,9 +75,9 @@ const ContactUsPageComp = () => {
 
   return (
     <div className="bg-[#faf6f6] py-12">
-      <div className="border max-w-5xl mx-auto p-8 bg-white">
+      <div className="border max-w-5xl mx-auto lg:p-8 bg-white">
         <div className="flex justify-center items-center">
-          <div className="bg-white border w-full flex flex-col lg:flex-row gap-8">
+          <div className="bg-white border w-full flex flex-col-reverse md:flex-row gap-8">
             {/* Form Section */}
             <div className="w-full lg:w-1/2 lg:p-6">
               <h2 className="text-xl font-bold mb-4 mt-6 lg:mt-0 text-center">
@@ -122,7 +122,7 @@ const ContactUsPageComp = () => {
                 ></textarea>
                 <button
                   type="submit"
-                  className="w-full bg-contactBlue text-white p-2 rounded-md hover:bg-[#27558a] transition duration-300"
+                  className="w-full bg-contactBlue text-white p-2 rounded-md hover:bg-contactBlueHover transition duration-300"
                 >
                   Send
                 </button>

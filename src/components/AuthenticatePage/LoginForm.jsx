@@ -109,8 +109,12 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { authenticateNAccessToken } from "@/utils/authUtils/authenticateNAccessToken";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "../../../firebase.config";
 
 const LoginForm = ({ setToggleSignIn }) => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const [formState, setFormState] = useState({
     email: "",
     password: "",
@@ -145,7 +149,14 @@ const LoginForm = ({ setToggleSignIn }) => {
     }
 
     try {
-      const response = await fetch(
+      const emailPassSignInRes = await signInWithEmailAndPassword(
+        email,
+        password
+      ).then(async (data) => {
+        console.log("🚀 ~ emailPassSignInRes ~ data:", data);
+        await authenticateNAccessToken(data.user);
+        /* 
+          const response = await fetch(
         `${process.env.NEXT_PUBLIC_BACKEND_URL_JMC_TOURS}/api/login`,
         {
           method: "POST",
@@ -174,7 +185,8 @@ const LoginForm = ({ setToggleSignIn }) => {
           error: data.message,
           loading: false,
         }));
-      }
+          */
+      });
     } catch (err) {
       console.error("Login error:", err);
       setFormState((prev) => ({ ...prev, error: err.message, loading: false }));

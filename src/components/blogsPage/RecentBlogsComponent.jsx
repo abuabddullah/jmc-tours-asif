@@ -44,14 +44,24 @@
 
 import useBlogs from "@/utils/customHooks/useBlogs";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegCalendarAlt, FaRegComments } from "react-icons/fa";
+import { blogsDEMO } from "./AllBlogs";
 
 const RecentBlogsComponent = () => {
+  const [isLoadingDEMO, setIsLoadingDEMO] = useState(false);
+  const [errorDEMO, setErrorDEMO] = useState(false);
   const { isLoading, error, blogs } = useBlogs();
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading blogs: {error.message}</div>;
+  useEffect(() => {
+    setIsLoadingDEMO(true);
+    setTimeout(() => {
+      setIsLoadingDEMO(false);
+    }, 3000);
+  }, []);
+
+  if (isLoadingDEMO) return <div>Loading...</div>;
+  if (errorDEMO) return <div>Error loading blogs: {errorDEMO.message}</div>;
 
   return (
     <div className="border p-8 rounded-xl">
@@ -59,13 +69,13 @@ const RecentBlogsComponent = () => {
         Recent Blogs
       </h4>
       <ul className="space-y-7 ms-8 lg:ms-16">
-        {blogs?.length == 0 && (
+        {/* {blogsDEMO?.length == 0 && (
           <small>
             <strong>No blogs yet</strong>
           </small>
-        )}
-        {blogs
-          .sort((a, b) => new Date(b.date) - new Date(a.date))
+        )} */}
+        {blogsDEMO
+          ?.sort((a, b) => new Date(b.date) - new Date(a.date))
           .slice(0, 5)
           .map((blog) => (
             <li key={blog._id} className="flex items-start">
@@ -75,7 +85,7 @@ const RecentBlogsComponent = () => {
                   {blog.comments.length || 0} comments
                 </div>
                 <h5 className="text-base font-medium">
-                  <Link href={`/blogsDetails/${blog?._id}`}>
+                  <Link href={`/blogsDetails/DEMO_ID`}>
                     {blog.title || "Title here"}
                   </Link>
                 </h5>

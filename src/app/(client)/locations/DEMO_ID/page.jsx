@@ -1,57 +1,29 @@
+"use client";
 import SectionSubtitle from "@/components/shared/SectionSubtitle";
 import ToursCardsSection from "@/components/shared/ToursCardsSection";
 import Image from "next/image";
 import React from "react";
 
-// Return a list of `params` to populate the [slug] dynamic segment
-export async function generateStaticParams() {
-  const { locations } = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/locations`
-  ).then((res) => res.json());
+const locationDEMO = {
+  _id: "mystic-cove-001",
+  name: "Mystic Cove",
+  category: "Seaside Retreat",
+  image:
+    "https://static.wanderon.in/wp-content/uploads/2024/09/best-places-to-visit-in-kashmir-in-may.jpg",
+  tourCount: 5,
+  description:
+    "Discover the hidden gems of Mystic Cove.\r\nExperience breathtaking sunsets and pristine beaches.\r\nPerfect for relaxation and adventure alike.\r\n\r\nExperience breathtaking sunsets and pristine beaches.\r\nPerfect for relaxation and adventure alike.\r\nExperience breathtaking sunsets and pristine beaches.\r\nPerfect for relaxation and adventure alike.\r\n\r\nExperience breathtaking sunsets and pristine beaches.\r\nPerfect for relaxation and adventure alike.\r\nExperience breathtaking sunsets and pristine beaches.\r\nPerfect for relaxation and adventure alike.",
+};
 
-  const staticParams4LocationDetails = locations.map((location) => ({
-    id: location._id,
-  }));
-  console.log("staticParams4LocationDetails", staticParams4LocationDetails);
-  return staticParams4LocationDetails;
-}
-
-// want generatemetadata
-export async function generateMetadata({ params }) {
-  const location = await fetchLocationById(params.id);
-  return {
-    title: location.name,
-    description: location.description,
-    keywords: location.name,
-  };
-}
-
-async function fetchLocationById(id) {
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/locations/${id}`;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Network response was not ok: ${response.statusText}`);
-    }
-    const { location } = await response.json();
-    return location;
-  } catch (error) {
-    console.error(`Failed to fetch location by ID ${id}:`, error);
-    throw error; // Re-throw the error after logging it
-  }
-}
-
-const LocationDetails = async ({ params }) => {
-  const location = await fetchLocationById(params?.id); // Use params?.id instead of params?._id
-  console.log(location);
-  const paragraphs = location?.description?.split("\r\n");
+const LocationDetails = () => {
+  const paragraphs = locationDEMO?.description?.split("\r\n");
   return (
     <section className="py-20 bg-[#FBF6F2]">
       <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="relative w-full min-h-60 overflow-hidden border-[12px] border-white rounded-xl shadow-xl">
           <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_URL}/${location?.image}`}
-            alt={location.name}
+            src={`${locationDEMO?.image}`}
+            alt={locationDEMO.name}
             layout="fill"
             objectFit="cover"
             className="transition-transform duration-300 ease-in-out transform hover:scale-110"
@@ -59,7 +31,7 @@ const LocationDetails = async ({ params }) => {
         </div>
         <div>
           <h1 className="text-4xl font-bold">
-            {location?.name || "Location name"}
+            {locationDEMO?.name || "Location name"}
           </h1>
           <hr className="w-12 border border-red-500 mt-2 mb-4" />
           {
@@ -94,7 +66,7 @@ const LocationDetails = async ({ params }) => {
         </div>
         <div className="container">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ToursCardsSection category={"popular"} />
+            <ToursCardsSection packageType={"popular"} />
           </div>
         </div>
       </section>

@@ -13,8 +13,8 @@ import { UserContext } from "@/utils/contextAPIs/UserInfoContext";
 import { UserProfilePicSkeleton } from "../LoadingSkeletons";
 
 const Navbar2 = () => {
-  // const [user, loading, error] = useAuthState(auth);
-  const { user, loading, error, setUserState } = useContext(UserContext);
+  const [user, loading, error] = useAuthState(auth);
+  // const { user, loading, error, setUserState } = useContext(UserContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -122,7 +122,7 @@ const Navbar2 = () => {
                     className="flex items-center focus:outline-none cursor-pointer"
                     aria-label="toggle profile dropdown"
                   >
-                    <UserLogOutDrop user={user} setUserState={setUserState} />
+                    <UserLogOutDrop user={user} />
                   </div>
                 </>
               ) : (

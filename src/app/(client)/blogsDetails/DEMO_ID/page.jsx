@@ -1,69 +1,36 @@
+"use client";
 import React from "react";
 import CommnetBlogForm from "@/components/blogsPage/CommnetBlogForm";
 import RecentBlogsComponent from "@/components/blogsPage/RecentBlogsComponent";
 import TagsBlogSection from "@/components/blogsPage/TagsBlogSection";
-import LocationsCard from "@/components/shared/LocationsCard";
-import Image from "next/image";
 import Link from "next/link";
 import {
   FaFacebookSquare,
   FaInstagram,
   FaLinkedin,
-  FaRegComment,
   FaRegFolderOpen,
   FaRegUser,
   FaTwitter,
 } from "react-icons/fa";
 import LocationCardComponent from "@/components/blogsPage/LocationCardComponent";
 
-// Return a list of `params` to populate the [slug] dynamic segment
-export async function generateStaticParams() {
-  const { blogs } = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/blogs`
-  ).then((res) => res.json());
-
-  const staticParams4BlogDetails = blogs.map((blog) => ({
-    id: blog._id,
-  }));
-
-  console.log("staticParams4BlogDetails", staticParams4BlogDetails);
-  return staticParams4BlogDetails;
-}
-
-// i want to create fn for generate metadata
-export async function generateMetadata({ params }) {
-  const blog = await fetchBlogById(params.id); // fetching the blog by ID
-  return {
-    title: blog?.title, // using the fetched blog data
-    description: blog?.seoDescriptions || blog?.descriptions.slice(0, 30),
-    keywords: blog?.tags?.join(", "),
-    openGraph: {
-      images: [
-        {
-          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${blog?.imagePath}`,
-        },
-      ],
-    },
+const SgBlogDetails = () => {
+  const blog = {
+    _id: "demo-blog-001",
+    title: "The Hidden Gems of Bali",
+    imagePath: "images/bali-blog.jpg",
+    descriptions: `
+      <p>Bali, an island paradise, offers more than just beaches. Discover the serene rice terraces, vibrant culture, and hidden waterfalls.</p>
+      <p>Whether you're seeking adventure or relaxation, Bali has it all. Explore local markets, enjoy authentic cuisine, and immerse yourself in the rich traditions of the Balinese people.</p>
+    `,
+    writer: "Alice Green",
+    category: "Travel",
+    tags: ["bali", "travel", "adventure", "culture"],
+    comments: [
+      { id: 1, text: "Incredible insights, thank you!" },
+      { id: 2, text: "I can't wait to visit!" },
+    ],
   };
-}
-
-async function fetchBlogById(id) {
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/blogs/${id}`;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Network response was not ok: ${response.statusText}`);
-    }
-    const blog = await response.json();
-    return blog;
-  } catch (error) {
-    console.error(`Failed to fetch blog by ID ${id}:`, error);
-    throw error; // Re-throw the error after logging it
-  }
-}
-
-const SgBlogDetails = async ({ params }) => {
-  const blog = await fetchBlogById(params?.id); // Use params?.id instead of params?._id
 
   return (
     <>
@@ -73,7 +40,7 @@ const SgBlogDetails = async ({ params }) => {
           <div
             className="absolute inset-0 bg-bottom"
             style={{
-              backgroundImage: `url("https://jmc.tours/wp-content/uploads/2021/10/breadcrumb.jpg")`,
+              backgroundImage: `url("https://www.indiaworldwidetravel.com/wp-content/uploads/2019/02/houseboat.jpg")`,
               backgroundAttachment: "fixed",
               backgroundSize: "cover",
               zIndex: -1,
@@ -130,7 +97,7 @@ const SgBlogDetails = async ({ params }) => {
                 {
                   // ["inani beach", "inani beach hotel", "inani beach resort"]
                   blog?.tags.map((tag, index) => (
-                    <span className="flex bg-rose-300 text-rose-900 uppercase  text-xs  items-center px-2 rounded-full">
+                    <span className="flex   uppercase    items-center px-3 py-1 bg-red-400 text-white  000000000000000    rounded-full text-sm ">
                       {tag}
                     </span>
                   ))
