@@ -3,6 +3,7 @@ import TicketBookingPageComponent from "@/components/ticketBookingPage/TicketBoo
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../../firebase.config";
+import { LoginSkeleton } from "@/components/shared/LoadingSkeletons";
 
 const TicketBookingPage = () => {
   const { user, isLoading } = useAuthState(auth);
