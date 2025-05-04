@@ -1,0 +1,47 @@
+{
+    "contacts": {
+      "showrooms": [
+        {
+          "name": "JMC Showroom I",
+          "phone": "+880 13212 10001"
+        },
+        {
+          "name": "JMC Showroom II",
+          "phone": "+880 13212 10002"
+        },
+        {
+          "name": "JMC Showroom III",
+          "phone": "+880 13212 10003"
+        },
+        {
+          "name": "JMC Showroom IV",
+          "phone": "+880 13212 10004"
+        },
+        {
+          "name": "JMC Showroom V",
+          "phone": "+880 13212 10005"
+        }
+      ],
+      "hotline": [
+        {
+          "name": "JMC Group Hotline",
+          "phone": "+880 13099 91999"
+        }
+      ],
+      "email": {
+        "department": "Administration",
+        "address": "info@jmcmedicine.com"
+      },
+      "website": "www.jmcmedicine.com",
+      "social_media": {
+        "facebook": "www.facebook.com/JMCMedicine",
+        "instagram": "www.instagram.com/jmc.medicine",
+        "linkedin": "www.linkedin.com/company/jmcmedicine",
+        "youtube": "www.youtube.com/@JMCMedicineCorner1",
+        "tiktok": "www.tiktok.com/@jmc.medicine",
+        "twitter": "www.x.com/jmcmedicinebd",
+        "threads": "www.threads.net/@jmc.medicine"
+      },
+      "address": "Address: 3rd floor, House 39, Road 126, Islam Mansion, Gulshan1 Circle (Sonali Bank building), Dhaka 1212, Bangladesh."
+    }
+  }
